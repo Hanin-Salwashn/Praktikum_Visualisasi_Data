@@ -32,30 +32,27 @@ kategori = st.selectbox(
     ['Basic Chart', 'Kustomisasi Grafik', 'Multiple Chart']
 )
 
-# Basic Bar Chart
-if kategori == 'Basic Chart':
-    st.subheader('Horizontal Bar Chart Sederhana')
-    fig1, ax1, = plt.subplots()
+# BASIC CHART
+if kategori == "Basic Chart":
+    st.subheader("Horizontal Bar Chart Sederhana")
 
-    # grafik batang horizontal
-    ax1.set_yticks(y)
-    ax1.set_get_yticklabels(brands)
-    ax1.set_title('Horizontal Bar Chart - 2023')
-    ax1.set_xlabel('Jumlah Penjualan')
-    ax1.set_ylabel('Merk')
+    fig1, ax1 = plt.subplots()
     ax1.barh(y, sales_2023, color='skyblue')
+    ax1.set_yticks(y)
+    ax1.set_yticklabels(brands)
+    ax1.set_xlabel("Total Sales (in Units)")
+    ax1.set_title("Smartphone Sales by Brand")
     st.pyplot(fig1)
-    
-    # stacked
-    st.subheader('Stacked Horizontal Bar Chart Sederhana')
-    fig2, ax2, = plt.subplots()
+
+    st.subheader("Stacked Horizontal Bar Chart Sederhana")
+
+    fig2, ax2 = plt.subplots()
+    ax2.barh(y, sales_2023, label='2023')
+    ax2.barh(y, sales_2024, left=sales_2023, label='2024')
     ax2.set_yticks(y)
-    ax2.set_get_yticklabels(brands)
-    ax2.set_title('Stacked Horizontal Bar Chart - 2023')
-    ax2.set_xlabel('Jumlah Penjualan')
-    ax2.set_ylabel('Merk')
-    ax2.barh(y, sales_2023, color='skyblue', label='2023')
-    ax2.barh(y, sales_2024, color='lightgreen' label='2024', left=sales_2023)
+    ax2.set_yticklabels(brands)
+    ax2.set_xlabel("Total Sales (in Units)")
+    ax2.set_title("Smartphone Sales by Brand (Stacked)")
     ax2.legend()
     st.pyplot(fig2)
 

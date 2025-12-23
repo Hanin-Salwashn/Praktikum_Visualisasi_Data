@@ -48,7 +48,7 @@ ax.legend()
 st.pyplot(fig)
 
 
-# 2 Grafik Stacked Vertical Bar Chart
+# 2 Grafik Stacked Vertical Bar Chart dengan Matplotlib
 st.subheader("2. Stacked Vertical Bar Chart dengan Matplotlib")
 
 fig, ax = plt.subplots()
